@@ -16,10 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 app.use('/', Route);
 
-if ( process.env.JWT_SECRET === 'production')
+if ( process.env.NODE_ENV === 'production')
 {
     app.use(express.static("client/build"));
-
 }
 
 const username = process.env.DB_USERNAME;
