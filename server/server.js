@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 app.use('/', Route);
 
-if ( process.env.NODE_ENV === 'production')
+if ( process.env.JWT_SECRET === 'production')
 {
     app.use(express.static("client/build"));
 
