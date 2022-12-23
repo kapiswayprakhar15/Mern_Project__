@@ -16,9 +16,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 app.use('/', Route);
 
-if ( process.env.NODE_ENV === 'production')
-{
-    app.use(express.static("client/build"));
+// if ( process.env.NODE_ENV === 'production')
+// {
+//     app.use(express.static("client/build"));
+// }
+if(process.env.NODE_ENV=='production'){
+    const path = require('path')
+
+    app.get('/',(req,res)=>{
+        app.use(express.static(path.resolve(__dirname,'client','build')))
+        res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+    })
 }
 
 const username = process.env.DB_USERNAME;
