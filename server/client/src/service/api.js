@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = process.env.MONGODB_URI || `mongodb+srv://${username}:${password}@my-inshort-clone.55twicw.mongodb.net/?retryWrites=true&w=majority`; 
+const URL = ""; 
 
 
 export const getNews = async (page, size = 5) => {
